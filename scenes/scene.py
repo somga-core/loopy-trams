@@ -1,14 +1,12 @@
-import time
-
 class Scene:
-    def __init__(self):
+    def __init__(self, window):
         self.objects = []
+        self.window = window
 
     def draw(self, window):
-        for object in self.objects:
-            object.draw(window)
+        for object_to_draw in self.objects:
+            object_to_draw.draw(window)
 
     def tick(self, window):
-        print(time.time())
-        for object in self.objects:
-            object.tick(window)
+        for object_to_tick in self.objects:
+            object_to_tick.tick(window)
