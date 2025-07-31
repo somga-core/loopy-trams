@@ -1,4 +1,4 @@
-class Display:
+class Text:
     def __init__(self):
         pass
 
@@ -8,5 +8,5 @@ class Display:
     def draw(self, window):
         pass
 
-    def change_image(self, image):
+    def change_text(self, text):
         pass
