@@ -52,6 +52,7 @@ class Window:
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     self.run = False
+                    
             pg.display.update()
 
         pg.quit()
