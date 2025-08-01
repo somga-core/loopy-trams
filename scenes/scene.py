@@ -1,7 +1,6 @@
 class Scene:
-    def __init__(self, window):
+    def __init__(self):
         self.objects = []
-        self.window = window
 
     def draw(self, window):
         for object_to_draw in self.objects:

@@ -17,18 +17,18 @@ import objects.text
 class Window:
     def __init__(self):
         if not isfile("assets/mouse_dog.png"):
-            quit()
+            raise ImportError("mouse_dog.png not found")
 
         pg.init()
 
-        self.screen = pg.display.set_mode(STANDART_WINDOW_SCALE)
-        self.font = pg.font.SysFont(None, 48)
+        self.screen = pg.display.set_mode(DEFAULT_WINDOW_SIZE, pg.RESIZABLE)
+        self.drawing_surface = pg.Surface(INITIAL_GAME_SIZE)
         
-        self.current_scene = scenes.menu.Menu(self)
+        self.current_scene = scenes.menu.Menu()
+        
         self.last_update_time = time()
         self.time_accumulator = 0
         self.run = True
-
 
     def mainloop(self):
         while self.run:
@@ -38,15 +38,24 @@ class Window:
             while self.time_accumulator > SECONDS_PER_TICK:
                 self.current_scene.tick(self)
                 self.time_accumulator -= SECONDS_PER_TICK
-                
-                for event in pg.event.get():
-                    if event.type == pg.QUIT: self.run = False
 
             self.screen.fill((0, 0, 0))
             self.current_scene.draw(self)
+
+            screen_size = pg.display.get_surface().get_size()
+            scale = min(screen_size[0] / INITIAL_GAME_SIZE[0], screen_size[1] / INITIAL_GAME_SIZE[1])
+ 
+            drawing_surface_size = (INITIAL_GAME_SIZE[0] * scale, INITIAL_GAME_SIZE[1] * scale)
+            drawing_surface_position = (screen_size[0] // 2 - drawing_surface_size[0] // 2, screen_size[1] // 2 - drawing_surface_size[1] // 2)
+            self.screen.blit(pg.transform.scale(self.drawing_surface, drawing_surface_size), drawing_surface_position)
+
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    self.run = False
             pg.display.update()
 
         pg.quit()
+        quit()
 
     def change_current_scene(self, scene):
         self.current_scene = scene

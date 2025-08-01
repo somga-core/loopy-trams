@@ -1,20 +1,20 @@
 import pygame as pg
+from settings import *
 
 class Display:
-    def __init__(self, path_to_image, scale, position):
+    def __init__(self, path_to_image, position = (0, 0)):
+        self.position = position
+
         self.image = pg.image.load(path_to_image)
-        self.image.convert()
-        self.image = pg.transform.rotozoom(self.image, 0, scale)
-        self.rect = self.image.get_rect()
-        self.rect.topleft = position
 
     def tick(self, window):
         pass
 
     def draw(self, window):
-        window.screen.blit(self.image, self.rect)
+        window.drawing_surface.blit(self.image, self.position)
 
-    def change_image(self, path_to_image, scale):
+    def change_image(self, path_to_image):
         self.image = pg.image.load(path_to_image)
-        self.image.convert()
-        self.image = pg.transform.rotozoom(self.image, 0, scale)
+
+    def change_position(self, position):
+        self.position = position

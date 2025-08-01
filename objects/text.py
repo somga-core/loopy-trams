@@ -1,27 +1,38 @@
 import pygame as pg
+from settings import *
 
 class Text:
-    def __init__(self, text, font, color, position, scale):
+    def __init__(self, text, color, position, size):
+        self.font = pg.font.SysFont(FONT, size)
         self.text = text
-        self.image = font.render(self.text, True, color)
-        self.image = pg.transform.rotozoom(self.image, 0, scale)
-        self.rect = self.image.get_rect()
-        self.rect.topleft = position
+        self.color = color
+        self.position = position
+
+        self.update_image()
 
     def tick(self, window):
         pass
 
     def draw(self, window):
-        window.screen.blit(self.image, self.rect)
+        window.drawing_surface.blit(self.image, self.position)
 
-    def change_image(self, path_to_image, scale):
-        self.image = pg.image.load(path_to_image)
-        self.image.convert()
-        self.image = pg.transform.rotozoom(self.image, 0, scale)
+    def update_image(self):
+        self.image = self.font.render(self.text, True, self.color)
 
-    def change_text(self, text, font, color, position, scale):
+    def change_text(self, text):
         self.text = text
-        self.image = font.render(self.text, True, color)
-        self.image = pg.transform.rotozoom(self.image, 0, scale)
-        self.rect = self.image.get_rect()
-        self.rect.topleft = position
+        self.update_image()
+
+    def change_color(self, color):
+        self.color = color
+        self.update_image()
+
+    def change_size(self, size):
+        self.size = pg.font.SysFont(FONT, size)
+        self.update_image()
+
+    def change_position(self, position):
+        self.position = position
+
+
+
