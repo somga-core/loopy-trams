@@ -14,11 +14,11 @@ class Text:
         pass
 
     def draw(self, window):
-        window.drawing_surface.blit(self.image, self.position)
+        window.drawing_surface.blit(self.image_surface, self.position)
 
     def update_image(self):
-        self.image = FONT.render(self.text, True, self.color)
-        self.image = pg.transform.rotozoom(self.image, 0, self.size)
+        self.image_surface = FONT.render(self.text, True, self.color)
+        self.image_surface = pg.transform.rotozoom(self.image_surface, 0, self.size)
 
     def change_text(self, text):
         self.text = text
