@@ -1,3 +1,5 @@
+import pygame as pg
+
 class Scene:
     def __init__(self):
         self.objects = []

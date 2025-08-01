@@ -25,6 +25,8 @@ class Window:
         self.drawing_surface = pg.Surface(INITIAL_GAME_SIZE)
         
         self.current_scene = scenes.menu.Menu()
+        self.event_queue = []
+        self.event_handler = []
         
         self.last_update_time = time()
         self.time_accumulator = 0
@@ -38,6 +40,7 @@ class Window:
             while self.time_accumulator > SECONDS_PER_TICK:
                 self.current_scene.tick(self)
                 self.time_accumulator -= SECONDS_PER_TICK
+                self.event_handler = pg.event.get()
 
             self.screen.fill((0, 0, 0))
             self.current_scene.draw(self)
@@ -48,8 +51,8 @@ class Window:
             drawing_surface_size = (INITIAL_GAME_SIZE[0] * scale, INITIAL_GAME_SIZE[1] * scale)
             drawing_surface_position = (screen_size[0] // 2 - drawing_surface_size[0] // 2, screen_size[1] // 2 - drawing_surface_size[1] // 2)
             self.screen.blit(pg.transform.scale(self.drawing_surface, drawing_surface_size), drawing_surface_position)
-
-            for event in pg.event.get():
+            
+            for event in self.event_handler:
                 if event.type == pg.QUIT:
                     self.run = False
                     
