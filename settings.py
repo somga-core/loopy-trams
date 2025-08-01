@@ -47,3 +47,5 @@ SPECIAL_TILES_LOOKUP = {
     "k": ["assets/tiles/rails/two_ways/straight/rails_vertical_up_left.png", "u"],
     "l": ["assets/tiles/rails/two_ways/straight/rails_vertical_up_right.png", "i"],
 }
+
+MAP_ORDER = ["tutorial"]

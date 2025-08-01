@@ -7,7 +7,7 @@ pg.init()
 from settings import *
 
 import scenes.game
-import scenes.levels
+import scenes.maps
 import scenes.menu
 
 class Window:
@@ -18,8 +18,7 @@ class Window:
         self.screen = pg.display.set_mode(DEFAULT_WINDOW_SIZE, pg.RESIZABLE)
         self.drawing_surface = pg.Surface(INITIAL_GAME_SIZE)
         
-        self.current_scene = scenes.game.Game("maps/tutorial.json")
-        # self.current_scene = scenes.menu.Menu()
+        self.current_scene = scenes.menu.Menu(self)
         self.event_handler = []
         
         self.last_update_time = time()
@@ -32,13 +31,13 @@ class Window:
             self.last_update_time = time()
             
             while self.time_accumulator > SECONDS_PER_TICK:
-                self.current_scene.tick(self)
+                self.current_scene.tick()
                 self.time_accumulator -= SECONDS_PER_TICK
                 self.event_handler = pg.event.get()
 
             self.screen.fill((0, 0, 0))
             self.drawing_surface.fill((0, 0, 0))
-            self.current_scene.draw(self)
+            self.current_scene.draw()
 
             screen_size = pg.display.get_surface().get_size()
             self.scale = min(screen_size[0] / INITIAL_GAME_SIZE[0], screen_size[1] / INITIAL_GAME_SIZE[1])

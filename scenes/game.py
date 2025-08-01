@@ -6,8 +6,10 @@ from objects.button import Button
 from objects.display import Display
 
 class Game():
-    def __init__(self, map_file):
-        with open(map_file) as f:
+    def __init__(self, window, map):
+        self.window = window
+
+        with open("maps/" + map + ".json") as f:
             map_data = json.load(f)
 
         self.map = map_data["map"]
@@ -33,18 +35,18 @@ class Game():
     def get_tile_type(self, x, y):
         return self.tiles[y][x].type
 
-    def tick(self, window):
+    def tick(self):
         for tile_row in self.tiles:
             for tile in tile_row:
-                tile.tick(window)
+                tile.tick(self.window)
 
         for tram in self.trams:
             pass
 
-    def draw(self, window):
+    def draw(self):
         for tile_row in self.tiles:
             for tile in tile_row:
-                tile.draw(window)
+                tile.draw(self.window)
 
         for tram in self.trams:
-            tram.draw(window)
+            tram.draw(self.window)
