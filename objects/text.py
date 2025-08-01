@@ -3,10 +3,10 @@ from settings import *
 
 class Text:
     def __init__(self, text, color, position, size):
-        self.font = pg.font.SysFont(FONT, size)
         self.text = text
         self.color = color
         self.position = position
+        self.size = size
 
         self.update_image()
 
@@ -17,7 +17,8 @@ class Text:
         window.drawing_surface.blit(self.image, self.position)
 
     def update_image(self):
-        self.image = self.font.render(self.text, True, self.color)
+        self.image = FONT.render(self.text, True, self.color)
+        self.image = pg.transform.rotozoom(self.image, 0, self.size)
 
     def change_text(self, text):
         self.text = text
@@ -28,7 +29,7 @@ class Text:
         self.update_image()
 
     def change_size(self, size):
-        self.size = pg.font.SysFont(FONT, size)
+        self.size = size
         self.update_image()
 
     def change_position(self, position):

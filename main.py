@@ -2,6 +2,8 @@ from os.path import isfile
 from time import time
 import pygame as pg
 
+pg.init()
+
 from settings import *
 
 import scenes.game
@@ -17,9 +19,7 @@ import objects.text
 class Window:
     def __init__(self):
         if not isfile("assets/mouse_dog.png"):
-            raise ImportError("mouse_dog.png not found")
-
-        pg.init()
+            raise ImportError("mouse_dog.png is not found")
 
         self.screen = pg.display.set_mode(DEFAULT_WINDOW_SIZE, pg.RESIZABLE)
         self.drawing_surface = pg.Surface(INITIAL_GAME_SIZE)
