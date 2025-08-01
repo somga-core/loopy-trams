@@ -48,4 +48,4 @@ SPECIAL_TILES_LOOKUP = {
     "l": ["assets/tiles/rails/two_ways/straight/rails_vertical_up_right.png", "i"],
 }
 
-MAP_ORDER = ["tutorial"]
+MAP_ORDER = ["tutorial", "test_1", "test_2"]
