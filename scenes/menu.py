@@ -10,7 +10,6 @@ class Menu(Scene):
         super().__init__(window)
 
         self.objects += [
-            Button("assets/tram/tram_down_left.png", "assets/tram/tram_down_right.png", (0, 0), lambda: self.window.change_current_scene(Maps(self.window))),
-            Display("assets/tiles/asphalt.png", (0, 100)),
-            Text("Press LMB to continue", (255, 255, 255), (320, 340), .5)
+            Button("assets/tram/tram_down_left.png", "assets/tram/tram_down_right.png", (320 - 32, 240 - 32), lambda: self.window.change_current_scene(Maps(self.window))),
+            Text("Click on the tram to continue", (255, 255, 255), (320, 340), .5)
         ]
