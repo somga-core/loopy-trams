@@ -11,5 +11,5 @@ class Menu(Scene):
         self.objects += [
             Display("assets/tiles/asphalt.png", (0, 100)),
             Text("smaco", (255, 255, 255), (0, 0), 1),
-            Button("assets/mouse_dog.png", (200, 0), "mishica.mishitsya.silno")
+            Button("assets/tram/tram_down_left.png", "assets/tram/tram_down_right.png", (200, 0), lambda: print("hi"))
         ]
