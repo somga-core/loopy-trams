@@ -3,13 +3,14 @@ import pygame as pg
 from objects.display import *
 
 class Button(Display):
-    def __init__(self, path_to_image, path_to_active_image, position, on_click_function):
+    def __init__(self, path_to_image, path_to_active_image, position, on_click_function, path_to_on_click_sound):
         super().__init__(path_to_image, position)
         self.on_click_function = on_click_function
         self.active = False
         self.path_to_active_image = path_to_active_image
         self.path_to_image = path_to_image
         self.collide_with_cursor = False
+        self.on_click_sound = pg.mixer.Sound(path_to_on_click_sound)
 
     def tick(self, window):
         for event in window.event_handler:
@@ -26,6 +27,7 @@ class Button(Display):
 
             if event.type == pg.MOUSEBUTTONDOWN and event.button == 1:
                 if self.collide_with_cursor:
+                    self.on_click_sound.play()
                     self.on_click_function()
 
     def check_collision(self, mouse_position, window):

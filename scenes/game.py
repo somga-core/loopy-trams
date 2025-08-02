@@ -23,10 +23,16 @@ class Game(Scene):
                 "assets/buttons/unactive/button_leave_unactive.png",
                 "assets/buttons/active/button_leave_active.png",
                 (0, 0),
-                self.leave
+                self.leave,
+                "assets/sounds/button_click.wav"
             ),
             Text("00:00", (255, 255, 255), (110, 32), .5),
             Text(map_data["text"], (255, 255, 255), (320, 440), .5)
+        ]
+
+        self.sounds = [
+            pg.mixer.Sound("assets/sounds/rails_break.wav"),
+            pg.mixer.Sound("assets/sounds/explotion.wav")
         ]
 
         self.window = window
@@ -73,7 +79,8 @@ class Game(Scene):
                     tile_data[0],
                     tile_data[0],
                     (x * TILE_SIZE, y * TILE_SIZE),
-                    lambda: self.change_tile_type(x, y, tile_data[1])
+                    lambda: self.change_tile_type(x, y, tile_data[1]),
+                    "assets/sounds/rails_click.wav"
                 )
             else: 
                 self.tiles[y][x] = Display(TILES_LOOKUP[type], (x * TILE_SIZE, y * TILE_SIZE))
@@ -173,6 +180,7 @@ class Game(Scene):
 
     def explode_tram(self, tram):
         tram.change_image("assets/tram/explotion.png")
+        self.sounds[1].play()
         self.game_state = -1
         self.leave()
 
@@ -188,13 +196,15 @@ class Game(Scene):
                         "assets/buttons/unactive/button_leave_unactive.png",
                         "assets/buttons/active/button_leave_active.png",
                         (320-96, 250),
-                        self.save_and_exit
+                        self.save_and_exit,
+                        "assets/sounds/button_click.wav"
                     ),
                     Button(
                         "assets/buttons/unactive/button_right_unactive.png",
                         "assets/buttons/active/button_right_active.png",
                         (320+32, 250),
-                        self.cancel_leave
+                        self.cancel_leave,
+                        "assets/sounds/button_click.wav"
                     )
                 ]
 
@@ -205,7 +215,8 @@ class Game(Scene):
                         "assets/buttons/unactive/button_leave_unactive.png",
                         "assets/buttons/active/button_leave_active.png",
                         (320-96, 250),
-                        self.save_and_exit
+                        self.save_and_exit,
+                        "assets/sounds/button_click.wav"
                     ),
                 ]
                 next_map_index = MAP_ORDER.index(self.map_name) + 1
@@ -218,7 +229,8 @@ class Game(Scene):
                             "assets/buttons/unactive/button_right_unactive.png",
                             "assets/buttons/active/button_right_active.png",
                             (320+32, 250),
-                            lambda: self.window.change_current_scene(Game(self.window, next_map))
+                            lambda: self.window.change_current_scene(Game(self.window, next_map)),
+                            "assets/sounds/button_click.wav"
                         )
                     ]
                 else:
@@ -228,7 +240,8 @@ class Game(Scene):
                             "assets/buttons/unactive/button_replay_unactive.png",
                             "assets/buttons/active/button_replay_active.png",
                             (320+32, 250),
-                            lambda: self.window.change_current_scene(Game(self.window, self.map_name))
+                            lambda: self.window.change_current_scene(Game(self.window, self.map_name)),
+                            "assets/sounds/button_click.wav"
                         )
                     ]
 
@@ -240,13 +253,15 @@ class Game(Scene):
                         "assets/buttons/unactive/button_leave_unactive.png",
                         "assets/buttons/active/button_leave_active.png",
                         (320-96, 250),
-                        self.save_and_exit
+                        self.save_and_exit,
+                        "assets/sounds/button_click.wav"
                     ),
                     Button(
                         "assets/buttons/unactive/button_replay_unactive.png",
                         "assets/buttons/active/button_replay_active.png",
                         (320+32, 250),
-                        lambda: self.window.change_current_scene(Game(self.window, self.map_name))
+                        lambda: self.window.change_current_scene(Game(self.window, self.map_name)),
+                        "assets/sounds/button_click.wav"
                     )
                 ]
 
@@ -330,8 +345,10 @@ class Game(Scene):
         if not self.get_tram_around(tile_x, tile_y):
             if tile_type == "=":
                 self.change_tile_type(tile_x, tile_y, "h")
+                self.sounds[0].play()
             elif tile_type == "|":
                 self.change_tile_type(tile_x, tile_y, "v")
+                self.sounds[0].play()
 
     def tick(self):
         if self.tram_running:

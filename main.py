@@ -3,6 +3,7 @@ from time import time
 import pygame as pg
 
 pg.init()
+pg.mixer.init()
 
 from settings import *
 
