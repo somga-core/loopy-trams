@@ -187,6 +187,7 @@ class Game(Scene):
     def leave(self):
         if self.tram_running == True:
             self.tram_running = False
+            self.save()
 
             if self.game_state == 0:
                 self.objects += [
@@ -196,7 +197,7 @@ class Game(Scene):
                         "assets/buttons/unactive/button_leave_unactive.png",
                         "assets/buttons/active/button_leave_active.png",
                         (320-96, 250),
-                        self.save_and_exit,
+                        lambda: self.window.change_current_scene(scenes.maps.Maps(self.window)),
                         "assets/sounds/button_click.wav"
                     ),
                     Button(
@@ -215,7 +216,7 @@ class Game(Scene):
                         "assets/buttons/unactive/button_leave_unactive.png",
                         "assets/buttons/active/button_leave_active.png",
                         (320-96, 250),
-                        self.save_and_exit,
+                        lambda: self.window.change_current_scene(scenes.maps.Maps(self.window)),
                         "assets/sounds/button_click.wav"
                     ),
                 ]
@@ -253,7 +254,7 @@ class Game(Scene):
                         "assets/buttons/unactive/button_leave_unactive.png",
                         "assets/buttons/active/button_leave_active.png",
                         (320-96, 250),
-                        self.save_and_exit,
+                        lambda: self.window.change_current_scene(scenes.maps.Maps(self.window)),
                         "assets/sounds/button_click.wav"
                     ),
                     Button(
@@ -269,7 +270,7 @@ class Game(Scene):
         self.tram_running = True
         self.objects = self.objects[:3]
 
-    def save_and_exit(self):
+    def save(self):
         with open("save.json") as f:
             save = json.load(f)
 
@@ -278,8 +279,6 @@ class Game(Scene):
 
         with open("save.json", "w") as f:
             json.dump(save, f)
-
-        self.window.change_current_scene(scenes.maps.Maps(self.window))
 
     def align_tram(self, tram):
         tram_position = list(tram.get_position())
