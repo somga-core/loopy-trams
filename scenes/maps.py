@@ -1,7 +1,7 @@
 from settings import *
 
 from scenes.scene import Scene
-from scenes.game import Game
+import scenes.game
 
 from objects.button import Button
 from objects.display import Display
