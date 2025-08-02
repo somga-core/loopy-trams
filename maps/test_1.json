@@ -1,8 +1,8 @@
 {
-    "damaged_tiles_appearing_probability": 0.2,
+    "damaged_tiles_appearing_probability": 0.1,
     "complete_time": 10,
-    "tram_speed": 1,
-    "text": "Yooo this is tutorial",
+    "tram_speed": 4,
+    "text": "Yooo this is test 1",
     "tiles": [
         "....................",
         "......(===========).",

@@ -25,7 +25,7 @@ class Game(Scene):
                 (0, 0),
                 self.leave
             ),
-            Text("00:00", (255, 255, 255), (96, 32), .5),
+            Text("00:00", (255, 255, 255), (110, 32), .5),
             Text(map_data["text"], (255, 255, 255), (320, 440), .5)
         ]
 
@@ -234,7 +234,7 @@ class Game(Scene):
             if self.game_state == -1:
                 self.objects += [
                     Display("assets/backgrounds/blackout.png", (0, 0)),
-                    Text("One of your trams exploded!", (255, 255, 255), (320, 200), .7),
+                    Text("One of the trams exploded!", (255, 255, 255), (320, 200), .7),
                     Button(
                         "assets/buttons/unactive/button_leave_unactive.png",
                         "assets/buttons/active/button_leave_active.png",
@@ -326,8 +326,11 @@ class Game(Scene):
     def tick(self):
         if self.tram_running:
             self.timer += .05
-            text = f"{str(int(self.timer) // 60).rjust(2, '0')}:{str(int(self.timer) % 60).rjust(2, '0')}"
-            self.objects[1].change_text(text)
+            timer_text = ""
+            timer_text += f"{str(int(self.timer) // 60).rjust(2, '0')}:{str(int(self.timer) % 60).rjust(2, '0')}"
+            timer_text += " / "
+            timer_text += f"{str(int(self.complete_time) // 60).rjust(2, '0')}:{str(int(self.complete_time) % 60).rjust(2, '0')}"
+            self.objects[1].change_text(timer_text)
 
             if random() <= self.damaged_tiles_appearing_probability:
                 self.generate_damaged_rails()
