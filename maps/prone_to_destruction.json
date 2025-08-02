@@ -1,12 +1,13 @@
 {
     "damaged_tiles_appearing_probability": 1,
-    "complete_time": 60,
-    "tram_speed": 3,
-    "text": "Here the railway is prone to destruction",
-    "tram_untouchable_radius": 5,
+    "complete_time": 25,
+    "tram_speed": 5,
+    "text": "You can click on a damaged rails to fix them",
+    "tram_untouchable_radius": 3,
     "tiles": [
     	"....................",
         ".(================).",
+        ".|................|.",
         ".|................|.",
         ".|................|.",
         ".|................|.",

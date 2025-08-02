@@ -1,8 +1,8 @@
 {
-    "damaged_tiles_appearing_probability": 0.05,
-    "complete_time": 120,
+    "damaged_tiles_appearing_probability": 0,
+    "complete_time": 25,
     "tram_speed": 5,
-    "text": "There is a big crossway, that you need to solve",
+    "text": "You can click on a rail cross to switch them",
     "tram_untouchable_radius": 5,
     "tiles": [
         "....................",
