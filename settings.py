@@ -59,4 +59,4 @@ TRAM_LOOKUP = {
     "dr": ("assets/tram/tram_down_right.png", (1, -1))
 }
 
-MAP_ORDER = ["just_a_railway", "big_crossway", "prone_to_destruction", "switchers", "squares", "multiconcentration", "two_crazy_ls", "final"]
+MAP_ORDER = ["just_a_railway", "big_crossway", "prone_to_destruction", "switchers", "squares", "two_crazy_ls", "multiconcentration", "euler_squares", "familiar_friend", "three_lines", "final"]
