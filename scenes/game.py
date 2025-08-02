@@ -38,6 +38,7 @@ class Game(Scene):
         self.raw_trams = map_data["trams"]
         self.tram_speed = map_data["tram_speed"]
         self.complete_time = map_data["complete_time"]
+        self.tram_untouchable_radius = map_data["tram_untouchable_radius"]
         self.damaged_tiles_appearing_probability = map_data["damaged_tiles_appearing_probability"]
 
         self.game_state = 0
@@ -311,13 +312,22 @@ class Game(Scene):
             )
         )
 
+    def get_tram_around(self, x, y):
+        for tram in self.trams:
+            tram_position = self.get_tile_position_under_tram(tram)
+
+            if abs(tram_position[0] - x) <= self.tram_untouchable_radius and abs(tram_position[1] - y) <= self.tram_untouchable_radius:
+                return True
+        
+        return False
+
     def generate_damaged_rails(self):
         tile_y = randint(0, len(self.raw_tiles) - 1)
         tile_x = randint(0, len(self.raw_tiles[0]) - 1)
 
         tile_type = self.get_tile_type(tile_x, tile_y)
 
-        if not self.get_tile_occupied(tile_x, tile_y):
+        if not self.get_tram_around(tile_x, tile_y):
             if tile_type == "=":
                 self.change_tile_type(tile_x, tile_y, "h")
             elif tile_type == "|":
