@@ -1,9 +1,9 @@
 {
-    "damaged_tiles_appearing_probability": 0.02,
+    "damaged_tiles_appearing_probability": 0,
     "complete_time": 12,
     "tram_speed": 2,
     "text": "Don't get distracted by this text",
-    "tram_untouchable_radius": 5,
+    "tram_untouchable_radius": 3,
     "tiles": [
         "........|.|.|.......",
         "........|.|.|.......",

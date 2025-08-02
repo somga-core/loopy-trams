@@ -3,7 +3,7 @@
     "complete_time": 25,
     "tram_speed": 5,
     "text": "You can click on appearing damaged rails to fix them",
-    "tram_untouchable_radius": 3,
+    "tram_untouchable_radius": 5,
     "tiles": [
     	"....................",
         ".(================).",
