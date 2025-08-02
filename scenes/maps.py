@@ -47,22 +47,26 @@ class Maps(Scene):
             Button("assets/buttons/unactive/button_enter_unactive.png",
                    "assets/buttons/active/button_enter_active.png",
                    (320 + 32, 320),
-                   lambda: self.window.change_current_scene(scenes.game.Game(self.window, MAP_ORDER[self.current_map_page%len(MAP_ORDER)]))),
+                   lambda: self.window.change_current_scene(scenes.game.Game(self.window, MAP_ORDER[self.current_map_page%len(MAP_ORDER)])),
+                   "assets/sounds/button_click.wav"),
         
             Button("assets/buttons/unactive/button_left_unactive.png",
                    "assets/buttons/active/button_left_active.png",
                    (320 - 230 - 32, 240 - 32),
-                   lambda: self.change_map_page(-1)),
+                   lambda: self.change_map_page(-1),
+                   "assets/sounds/button_click.wav"),
                    
             Button("assets/buttons/unactive/button_right_unactive.png",
                    "assets/buttons/active/button_right_active.png",
                    (320 + 230 - 32, 240 - 32),
-                   lambda: self.change_map_page(1)),
+                   lambda: self.change_map_page(1),
+                   "assets/sounds/button_click.wav"),
 
             Button("assets/buttons/unactive/button_leave_unactive.png",
                    "assets/buttons/active/button_leave_active.png",
                    (320 - 96, 320),
-                   self.leave)
+                   self.leave,
+                   "assets/sounds/button_click.wav")
         ]
         self.change_map_page(0)
 
