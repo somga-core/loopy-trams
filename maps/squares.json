@@ -2,7 +2,7 @@
     "damaged_tiles_appearing_probability": 0.1,
     "complete_time": 30,
     "tram_speed": 2,
-    "text": "Square&steel!",
+    "text": "Square & steel!",
     "tram_untouchable_radius": 3,
     "tiles": [
         "....................",
