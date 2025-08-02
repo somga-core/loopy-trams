@@ -3,6 +3,7 @@
     "complete_time": 60,
     "tram_speed": 3,
     "text": "Here the railway is prone to destruction",
+    "tram_untouchable_radius": 5,
     "tiles": [
     	"....................",
         ".(================).",

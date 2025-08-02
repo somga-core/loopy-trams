@@ -3,6 +3,7 @@
     "complete_time": 120,
     "tram_speed": 5,
     "text": "There is a big crossway, that you need to solve",
+    "tram_untouchable_radius": 5,
     "tiles": [
         "....................",
         "...(============)...",
