@@ -43,8 +43,14 @@ class Window:
             self.scale = min(screen_size[0] / INITIAL_GAME_SIZE[0], screen_size[1] / INITIAL_GAME_SIZE[1])
  
             drawing_surface_size = (INITIAL_GAME_SIZE[0] * self.scale, INITIAL_GAME_SIZE[1] * self.scale)
-            self.drawing_surface_position = (screen_size[0] // 2 - drawing_surface_size[0] // 2, screen_size[1] // 2 - drawing_surface_size[1] // 2)
-            self.screen.blit(pg.transform.scale(self.drawing_surface, drawing_surface_size), self.drawing_surface_position)
+            self.drawing_surface_position = (
+                screen_size[0] // 2 - drawing_surface_size[0] // 2,
+                screen_size[1] // 2 - drawing_surface_size[1] // 2
+            )
+            self.screen.blit(
+                pg.transform.scale(self.drawing_surface, drawing_surface_size),
+                self.drawing_surface_position
+            )
             
             for event in self.event_handler:
                 if event.type == pg.QUIT:

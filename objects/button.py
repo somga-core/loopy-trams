@@ -29,9 +29,18 @@ class Button(Display):
                     self.on_click_function()
 
     def check_collision(self, mouse_position, window):
-        image_surface_size = (self.image_surface.get_size()[0] * window.scale, self.image_surface.get_size()[1] * window.scale)
-        image_surface_position = (window.drawing_surface_position[0] + self.position[0] * window.scale, window.drawing_surface_position[1] + self.position[1] * window.scale)
-        self.collide_with_cursor = pg.rect.Rect(*image_surface_position, *image_surface_size).collidepoint(mouse_position)
+        image_surface_size = (
+            self.image_surface.get_size()[0] * window.scale,
+            self.image_surface.get_size()[1] * window.scale
+        )
+        image_surface_position = (
+            window.drawing_surface_position[0] + self.position[0] * window.scale,
+            window.drawing_surface_position[1] + self.position[1] * window.scale
+        )
+        self.collide_with_cursor = pg.rect.Rect(
+            *image_surface_position,
+            *image_surface_size
+        ).collidepoint(mouse_position)
     
     def change_image(self, path_to_image):
         self.path_to_image = path_to_image

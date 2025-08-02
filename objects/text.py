@@ -15,7 +15,10 @@ class Text:
 
     def draw(self, window):
         image_surface_size = self.image_surface.get_size()
-        image_surface_position = (self.position[0] - image_surface_size[0] // 2, self.position[1] - image_surface_size[1] // 2)
+        image_surface_position = (
+            self.position[0] - image_surface_size[0] // 2,
+            self.position[1] - image_surface_size[1] // 2
+        )
         window.drawing_surface.blit(self.image_surface, image_surface_position)
 
     def update_image(self):
