@@ -3,6 +3,7 @@
     "complete_time": 120,
     "tram_speed": 4,
     "text": "Yooo this is test 2",
+    "tram_untouchable_radius": 5,
     "tiles": [
         "....................",
         "......(===========).",

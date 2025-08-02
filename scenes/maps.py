@@ -51,12 +51,12 @@ class Maps(Scene):
         
             Button("assets/buttons/unactive/button_left_unactive.png",
                    "assets/buttons/active/button_left_active.png",
-                   (320 - 130 - 32, 240 - 32),
+                   (320 - 230 - 32, 240 - 32),
                    lambda: self.change_map_page(-1)),
                    
             Button("assets/buttons/unactive/button_right_unactive.png",
                    "assets/buttons/active/button_right_active.png",
-                   (320 + 130 - 32, 240 - 32),
+                   (320 + 230 - 32, 240 - 32),
                    lambda: self.change_map_page(1)),
 
             Button("assets/buttons/unactive/button_leave_unactive.png",
