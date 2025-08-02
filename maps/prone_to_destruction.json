@@ -2,7 +2,7 @@
     "damaged_tiles_appearing_probability": 1,
     "complete_time": 25,
     "tram_speed": 5,
-    "text": "You can click on a damaged rails to fix them",
+    "text": "You can click on appearing damaged rails to fix them",
     "tram_untouchable_radius": 3,
     "tiles": [
     	"....................",
