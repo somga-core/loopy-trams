@@ -59,4 +59,4 @@ TRAM_LOOKUP = {
     "dr": ("assets/tram/tram_down_right.png", (1, -1))
 }
 
-MAP_ORDER = ["tutorial", "test_1", "test_2"]
+MAP_ORDER = ["tutorial", "big_crossway", "prone_to_destruction", "test_1", "test_2"]
