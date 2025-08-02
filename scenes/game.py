@@ -26,7 +26,7 @@ class Game(Scene):
                 self.leave,
                 "assets/sounds/button_click.wav"
             ),
-            Text("00:00", (255, 255, 255), (110, 32), .5),
+            Text("00:00 / 00:00", (255, 255, 255), (110, 32), .5),
             Text(map_data["text"], (255, 255, 255), (320, 440), .5)
         ]
 
