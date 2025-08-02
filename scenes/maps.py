@@ -19,6 +19,8 @@ class Maps(Scene):
 
         if save:
             self.current_map_page = MAP_ORDER.index([i for i in save][-1])
+
+        self.tiles = []
         
         self.objects += [
             Display("assets/backgrounds/blackout.png",
@@ -83,13 +85,30 @@ class Maps(Scene):
             save[map_name] = 0
 
         with open("maps/" + map_name + ".json") as f:
-            map_data = json.load(f)
+            self.map_data = json.load(f)
 
         self.objects[2].change_text(f"Best time: {str(int(save[map_name]) // 60).rjust(2, '0')}:{str(int(save[map_name]) % 60).rjust(2, '0')}")
-        self.objects[3].change_text(f"Complete time: {str(int(map_data['complete_time']) // 60).rjust(2, '0')}:{str(int(map_data['complete_time']) % 60).rjust(2, '0')}")
-        self.objects[4].change_text(f"{'Completed!' if save[map_name] >= map_data['complete_time'] else 'Incomplete'}")
+        self.objects[3].change_text(f"Complete time: {str(int(self.map_data['complete_time']) // 60).rjust(2, '0')}:{str(int(self.map_data['complete_time']) % 60).rjust(2, '0')}")
+        self.objects[4].change_text(f"{'Completed!' if save[map_name] >= self.map_data['complete_time'] else 'Incomplete'}")
+
+    def load_map(self):
+        raw_tiles = self.map_data["tiles"]
+
+        self.tiles.clear()
+
+        for y in range(len(raw_tiles)):
+            for x in range(len(raw_tiles[y])):
+                tile_type = raw_tiles[y][x]
+                tile_image = TILES_LOOKUP[tile_type] if tile_type in TILES_LOOKUP else SPECIAL_TILES_LOOKUP[tile_type][0]
+                self.tiles.append(Display(tile_image, (x * TILE_SIZE, y * TILE_SIZE)))
 
     def change_map_page(self, shift):
         self.current_map_page += shift
         self.objects[1].change_text(MAP_ORDER[self.current_map_page%len(MAP_ORDER)].title().replace("_", " "))
         self.show_map_time()
+        self.load_map()
+
+    def draw(self):
+        for tile in self.tiles:
+            tile.draw(self.window)
+        super().draw()
