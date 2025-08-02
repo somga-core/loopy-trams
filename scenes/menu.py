@@ -11,9 +11,9 @@ class Menu(Scene):
 
         self.objects += [
             Button(
-                "assets/tram/tram_down_left.png",
-                "assets/tram/tram_down_right.png",
-                (320 - 32, 240 - 32),
+                "assets/backgrounds/tram.png",
+                "assets/backgrounds/tram.png",
+                (320 - 128, 240 - 99),
                 lambda: self.window.change_current_scene(Maps(self.window)),
                 "assets/sounds/button_click.wav"
             ),

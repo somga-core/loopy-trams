@@ -3,7 +3,7 @@ import pygame as pg
 SECONDS_PER_TICK = .05
 DEFAULT_WINDOW_SIZE = (640, 480)
 INITIAL_GAME_SIZE = (640, 480)
-FONT = pg.font.Font(None, 48)
+FONT = pg.font.Font("assets/font/Oldtimer.ttf", 25)
 TILE_SIZE = 32
 
 TILES_LOOKUP = {
