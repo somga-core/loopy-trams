@@ -1,6 +1,6 @@
 {
     "damaged_tiles_appearing_probability": 0,
-    "complete_time": 15,
+    "complete_time": 10,
     "tram_speed": 5,
     "text": "Your goal is to last the provided time without tram explosion",
     "tram_untouchable_radius": 3,
