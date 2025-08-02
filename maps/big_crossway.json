@@ -2,7 +2,7 @@
     "damaged_tiles_appearing_probability": 0.05,
     "complete_time": 120,
     "tram_speed": 5,
-    "text": "There is a big crossway, that you need to solve.",
+    "text": "There is a big crossway, that you need to solve",
     "tiles": [
         "....................",
         "...(============)...",
