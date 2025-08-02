@@ -15,6 +15,10 @@ class Window:
     def __init__(self):
         if not isfile("assets/mouse_dog.png"):
             raise ImportError("mouse_dog.png is not found")
+        
+        icon = pg.image.load("assets/tram/tram_down_right.png")
+        pg.display.set_caption("Loopy trams")
+        pg.display.set_icon(icon)
 
         self.screen = pg.display.set_mode(DEFAULT_WINDOW_SIZE, pg.RESIZABLE)
         self.drawing_surface = pg.Surface(INITIAL_GAME_SIZE)
