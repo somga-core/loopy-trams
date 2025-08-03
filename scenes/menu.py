@@ -11,11 +11,15 @@ class Menu(Scene):
 
         self.objects += [
             Button(
-                "assets/backgrounds/tram.png",
-                "assets/backgrounds/tram.png",
-                (320 - 128, 240 - 99),
+                "assets/backgrounds/blackout.png",
+                "assets/backgrounds/blackout.png",
+                (0, 0),
                 lambda: self.window.change_current_scene(Maps(self.window)),
                 "assets/sounds/button_click.wav"
             ),
-            Text("Click on the tram to continue", (255, 255, 255), (320, 340), .5)
+            Display(
+                "assets/backgrounds/logo.png",
+                (320 - 128, 240 - 99)
+            ),
+            Text("Click there to continue", (255, 255, 255), (320, 340), .5)
         ]
