@@ -64,7 +64,6 @@ class Window:
             pg.display.update()
 
         pg.quit()
-        quit()
 
     def change_current_scene(self, scene):
         self.current_scene = scene
@@ -72,4 +71,3 @@ class Window:
 if __name__ == "__main__":
     window = Window()
     window.mainloop()
-    quit()
