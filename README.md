@@ -34,5 +34,6 @@ Font:
 ## Update logs
 Update `1.0`:
 - Added all game basicaly
+
 Update `1.1`:
 - Optimization fixes
