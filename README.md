@@ -30,3 +30,9 @@ Font:
 ![alt](https://cdn.imgchest.com/files/4gdcxow8wx4.png)
 ![alt](https://cdn.imgchest.com/files/yvdcwgz8zzy.png)
 ![alt](https://cdn.imgchest.com/files/4jdcv32m2e4.png)
+
+## Update logs
+Update `1.0`:
+- Added all game basicaly
+Update `1.1`:
+- Optimization fixes
