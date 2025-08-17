@@ -1,7 +1,7 @@
 import pygame as pg
 
 SECONDS_PER_TICK = .05
-FRAMES_PER_SECOND = 24
+FRAMES_PER_SECOND = 20
 DEFAULT_WINDOW_SIZE = (640, 480)
 INITIAL_GAME_SIZE = (640, 480)
 FONT = pg.font.Font("assets/font/Oldtimer.ttf", 25)
