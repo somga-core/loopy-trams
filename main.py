@@ -22,6 +22,7 @@ class Window:
 
         self.screen = pg.display.set_mode(DEFAULT_WINDOW_SIZE, pg.RESIZABLE)
         self.drawing_surface = pg.Surface(INITIAL_GAME_SIZE)
+        self.clock = pg.time.Clock()
         
         self.current_scene = scenes.menu.Menu(self)
         self.event_handler = []
@@ -32,6 +33,7 @@ class Window:
 
     def mainloop(self):
         while self.run:
+            self.clock.tick(FRAMES_PER_SECOND)
             self.time_accumulator += time() - self.last_update_time
             self.last_update_time = time()
             
