@@ -1,5 +1,5 @@
-# Loopy trams
-![alt text](https://cdn.imgchest.com/files/yd5ceg9o9n4.png)
+![logo](https://cdn.imgchest.com/files/4apc5e5n3a4.png) \
+![GitHub Created At](https://img.shields.io/github/created-at/somga-core/loopy-trams) ![GitHub last commit](https://img.shields.io/github/last-commit/somga-core/loopy-trams) ![GitHub Release Date](https://img.shields.io/github/release-date/somga-core/loopy-trams)
 
 ## What is this
 Loopy trams is a game about tram managment. You need to switch gates, fix damaged tracks and turn rails around to prevent trams from exploding
